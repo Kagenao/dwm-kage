@@ -21,7 +21,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "3", "4", "5", "6" };
+static const char *tags[] = { "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -59,14 +59,18 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_coral, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "terminator", "neofetch", NULL };
+static const char *termcmd[]  = { "terminator", NULL };
 static const char *web[]  = { "surf", "google.de", NULL };
+static const char *fm[]  = { "pcmanfm", NULL };
+static const char *tm[]  = { "terminator", "-e", "htop", NULL };
 #include "shiftview.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY, 	                XK_w, 	   spawn,          {.v = web } },
+	{ MODKEY|ShiftMask, 	        XK_f, 	   spawn,          {.v = fm } },
+	{ MODKEY|ShiftMask, 	        XK_t, 	   spawn,          {.v = tm } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
