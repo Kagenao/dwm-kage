@@ -2,7 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 7;        /* border pixel of windows */
-static const unsigned int gappx     = 5;	/* gaps between windows */
+static const unsigned int gappx     = 20;	/* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -10,20 +10,27 @@ static const char *fonts[]          = { "monospace:size=16", "fontawesome:size=1
 static const char dmenufont[]       = "monospace:size=16";
 static const char col_gray1[]       = "#222222";
 static const char col_bubblegum1[]  = "#bd8337";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
+static const char col_gray2[]       = "#bd0000";
+/* bar top left color */
+static const char col_gray3[]       = "#ebc07c";
+
+static const char col_font1[]       = "#ebc07c";
+/* bar top left sel color */
+static const char col_gray4[]       = "#9e8855";
+
 static const char col_coral[]        = "#f0d5b1";
-static const char col_cyan[]        = "#f5d5b1";
+static const char col_1[]        = "#997842";
+static const char col_2[]        = "#000000";
+static const char col_3[]        = "#555555";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeNorm] = { col_font1, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_bubblegum1, col_coral,  col_coral  },
-        [SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right
-	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected 
+        [SchemeStatus]  = { col_font1, col_gray1,  "#000000"  }, // Statusbar right
+	[SchemeTagsSel]  = { col_gray4, col_coral,  "#000000"  }, // Tagbar left selected 
 	[SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left
-	[SchemeInfoSel]  = { col_gray4, col_cyan,  "#000000"  }, // infobar middle
-	[SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle
+	[SchemeInfoSel]  = { col_1, col_2,  col_3  }, // infobar middle
+	[SchemeInfoNorm]  = { col_3, col_1,  col_2  }, // infobar middle
 };
 
 /* tagging */
@@ -59,7 +66,7 @@ static const Layout layouts[] = {
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
-/* helper for spawning shell commands in the pre dwm-5.0 fashion */
+/* helper for spawning shell comman:ds in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/usr/bin/terminator", "-c", cmd, NULL } }
 
 /* commands */
@@ -101,7 +108,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
-	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
+	{ MODKEY,                       XK_plus,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)

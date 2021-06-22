@@ -20,6 +20,10 @@
  *
  * To understand everything else, start reading main().
  */
+
+/* DWM fork by Kagenao -- feel free to reassign everything! */
+
+
 #include <errno.h>
 #include <locale.h>
 #include <signal.h>

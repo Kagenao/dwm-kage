@@ -11,25 +11,19 @@ static const char dmenufont[]       = "monospace:size=16";
 static const char col_gray1[]       = "#222222";
 static const char col_bubblegum1[]  = "#bd8337";
 static const char col_gray2[]       = "#bd0000";
-/* bar top left color */
-static const char col_gray3[]       = "#ebc07c";
-
-static const char col_font1[]       = "#ebc07c";
-/* bar top right color */
-static const char col_gray4[]       = "#966e2c";
-
+static const char col_gray3[]       = "#000000";
+static const char col_font1[]       = "#ffffff";
+static const char col_gray4[]       = "#eeeeee";
 static const char col_coral[]        = "#f0d5b1";
-static const char col_1[]        = "#ffffff";
-static const char col_2[]        = "#000000";
-static const char col_3[]        = "#555555";
+static const char col_cyan[]        = "#f5d5b1";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_font1, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_bubblegum1, col_coral,  col_coral  },
         [SchemeStatus]  = { col_font1, col_gray1,  "#000000"  }, // Statusbar right
-	[SchemeTagsSel]  = { col_gray4, col_coral,  "#000000"  }, // Tagbar left selected 
+	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected 
 	[SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left
-	[SchemeInfoSel]  = { col_1, col_2,  col_3  }, // infobar middle
+	[SchemeInfoSel]  = { col_gray4, col_cyan,  "#000000"  }, // infobar middle
 	[SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle
 };
 
