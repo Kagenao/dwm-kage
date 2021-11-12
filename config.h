@@ -9,7 +9,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Hack Nerd Font:size=14" };
 static const char dmenufont[]       = "Hack Nerd Font:size=16";
 
-/* Meine Farben */
+/* Meine Farben yeah */
 static const char col_bg[]          = "#080708";
 static const char col_fg[]          = "#dad6d9";
 static const char col_border[]      = "#1b181a";
