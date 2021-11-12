@@ -6,8 +6,18 @@ static const unsigned int gappx     = 20;	/* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=16", "fontawesome:size=14" };
-static const char dmenufont[]       = "monospace:size=16";
+static const char *fonts[]          = { "Hack Nerd Font:size=14" };
+static const char dmenufont[]       = "Hack Nerd Font:size=16";
+
+/* Meine Farben */
+static const char col_bg[]          = "#080708";
+static const char col_fg[]          = "#dad6d9";
+static const char col_border[]      = "#1b181a";
+static const char col_fg_sel[]      = "#e49f9d";
+static const char col_bg_sel[]      = "#2d292c";
+static const char col_border_sel[]  = "#2d292c";
+
+
 static const char col_gray1[]       = "#222222";
 static const char col_bubblegum1[]  = "#bd8337";
 static const char col_gray2[]       = "#bd0000";
@@ -23,14 +33,14 @@ static const char col_1[]        = "#997842";
 static const char col_2[]        = "#000000";
 static const char col_3[]        = "#555555";
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_font1, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_bubblegum1, col_coral,  col_coral  },
-        [SchemeStatus]  = { col_font1, col_gray1,  "#000000"  }, // Statusbar right
-	[SchemeTagsSel]  = { col_gray4, col_coral,  "#000000"  }, // Tagbar left selected 
-	[SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left
-	[SchemeInfoSel]  = { col_1, col_2,  col_3  }, // infobar middle
-	[SchemeInfoNorm]  = { col_3, col_1,  col_2  }, // infobar middle
+	/*               fg          bg          border   */
+	[SchemeNorm] = { col_fg,     col_bg,     col_border },
+	[SchemeSel]  = { col_fg_sel, col_bg_sel, col_border_sel  },
+        [SchemeStatus]  = { col_fg,  col_bg,      "#000000"  }, // Statusbar right
+	[SchemeTagsSel]  = { col_fg_sel, col_bg_sel,  "#000000"  }, // Tagbar left selected 
+	[SchemeTagsNorm]  = { col_fg, col_bg,  "#000000"  }, // Tagbar left
+	[SchemeInfoSel]  = { col_fg_sel, col_bg_sel,  col_border_sel  }, // infobar middle
+	[SchemeInfoNorm]  = { col_fg, col_bg,  col_border  }, // infobar middle
 };
 
 /* tagging */
@@ -72,10 +82,10 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_coral, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "terminator", NULL };
-static const char *web[]  = { "surf", "google.de", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
+static const char *web[]  = { "firefox", "google.de", NULL };
 static const char *fm[]  = { "pcmanfm", NULL };
-static const char *tm[]  = { "terminator", "-e", "htop", NULL };
+static const char *tm[]  = { "alacritty", "-e", "htop", NULL };
 #include "shiftview.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
