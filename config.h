@@ -81,9 +81,11 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_coral, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "rofi", "-show", "run", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
+static const char *screenkey[] = { "screenkey", "--opacity", "0.2", "--bg-color", "black", "-s", "small", "-t", "1.5", NULL };
 static const char *web[]  = { "firefox", "google.de", NULL };
+static const char *screenkeyDel[]  = { "killall", "screenkey", NULL };
 static const char *fm[]  = { "pcmanfm", NULL };
 static const char *tm[]  = { "alacritty", "-e", "htop", NULL };
 #include "shiftview.c"
@@ -92,6 +94,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY, 	                XK_w, 	   spawn,          {.v = web } },
+	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   {.v = screenkeyDel } },
+	{ MODKEY,     			XK_s,	   spawn,	   {.v = screenkey } },
 	{ MODKEY|ShiftMask, 	        XK_f, 	   spawn,          {.v = fm } },
 	{ MODKEY|ShiftMask, 	        XK_t, 	   spawn,          {.v = tm } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
